@@ -1,0 +1,56 @@
+﻿@model List<PizzzaOrderingFEApplication.Models.CustomerPizzaDetails>
+@{
+    ViewData["Title"] = "PizzaDetailsPage";
+}
+
+<h1>PizzaDetailsPage</h1>
+
+<style>
+
+
+    .pizza-images {
+        border-radius: 8px;
+        max-width: 100%;
+        height: 13em;
+    }
+</style>
+
+@using (Html.BeginForm("PizzaDetailsPage", "PizzaView", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+
+
+
+    <div class="container">
+        <div class="row">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="col-4">
+                    <div class="card m-5" style="width: 20rem; ">
+                        <img src="@Model[i].pizzaDetail.PizzaImage" class="card-img-top pizza-images" alt="@Model[i].pizzaDetail.PizzaName)">
+                        <div class="card-body">
+                            <h5 class="card-title">@Model[i].pizzaDetail.PizzaName</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Price: <span class="font-weight-bold"> @Model[i].pizzaDetail.PizzaPrice INR</span> </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <span class="font-weight-bold">QTY:</span>  @Html.TextBoxFor(d => Model[i].qty, new { @type = "number", @min = "0" })
+                                </li>
+                            </ul>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item ">@Html.CheckBoxFor(m => Model[i].onion)<span class="font-weight-bold">  onion</span>  </li>
+                                <li class="list-group-item ">@Html.CheckBoxFor(m => Model[i].crispCapsicum) <span class="font-weight-bold"> crispCapsicum</span></li>
+                                <li class="list-group-item ">@Html.CheckBoxFor(m => Model[i].GrilledMushroom) <span class="font-weight-bold"> GrilledMushroom </span></li>
+                                <li class="list-group-item ">@Html.ActionLink("DELETE", "DeletPizza", "PizzaView", TempData["pizzaid"]=i )</li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="Oder Now" />
+}
