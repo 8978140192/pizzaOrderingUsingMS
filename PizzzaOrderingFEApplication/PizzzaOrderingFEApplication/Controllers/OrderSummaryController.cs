@@ -74,17 +74,14 @@ namespace PizzzaOrderingFEApplication.Controllers
         }
         public IActionResult OrderSucessPage()
         {
-            //if (CommanUsedValued.orderQuatity<1)
-            //{
-            //    return RedirectToAction("PizzaView", "PizzaView");
-
-            //}
+           
             if (CommanUsedValued.CurrentOrderId == 0)
             {
                 ViewBag.orderApiServer = CommanUsedValued.User.UserName +" our server's down we are working on it.....";
                 ViewBag.user = CommanUsedValued.User;
                 return View();
             }
+            
             ViewBag.orderApiServer = CommanUsedValued.User.UserName + " YOUR ORDER PLACED SUCCESFULLY ORDER ID "+ CommanUsedValued.CurrentOrderId;
             ViewBag.user = CommanUsedValued.User;
             return View();

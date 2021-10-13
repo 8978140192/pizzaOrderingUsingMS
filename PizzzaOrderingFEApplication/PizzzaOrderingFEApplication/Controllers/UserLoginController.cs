@@ -24,19 +24,26 @@ namespace PizzzaOrderingFEApplication.Controllers
 
 
         [HttpPost]
+        
         public IActionResult RegisterPage(UserDetail userDetail)
         {
             try
             {
+                if (userDetail.Password != userDetail.ReTyptePassword)
+                {
+                    ViewBag.Error = "Password not matched";
+                    return View();
+                }
                 UserDetail user = _userService.Register(userDetail);
                 if (user != null)
                 {
-                    //TempData["token"] = user.jwtToken;
+                    
                     return RedirectToAction("StartPage", "StartUpPage");
                 }
             }
             catch
             {
+                ViewBag.Error = "Not Registered";
                 return View();
             }
             ViewBag.Error = "Not Registered";

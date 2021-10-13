@@ -26,3 +26,6 @@ select * from Orders
 select * from OrderDetails
 select * from OrderToppingDetails
 
+DELETE FROM OrderToppingDetails WHERE toppingId=3;
+DELETE FROM OrderDetails WHERE OrderId between 1 and 26;
+DELETE FROM Orders WHERE OrderId between 1 and 26;

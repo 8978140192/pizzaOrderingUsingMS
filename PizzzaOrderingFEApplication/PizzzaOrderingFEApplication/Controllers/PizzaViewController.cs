@@ -88,21 +88,6 @@ namespace PizzzaOrderingFEApplication.Controllers
         }
 
         
-        //public IActionResult ConformOrder()
-        //{
-        //    _repo.UpdateDatabase(CommanUsedValued.customerPizzaDetail, "SUCESS");
-        //    return RedirectToAction("OrderSucessPage", "UserLogin"); ;
-        //}
-        //public IActionResult CancleOrder()
-        //{
-        //    _repo.UpdateDatabase(CommanUsedValued.customerPizzaDetail, "FAIL");
-        //    return RedirectToAction("PizzaView", "UserLogin"); ;
-        //}
-        //public IActionResult OrderSucessPage()
-        //{
-        //    ViewBag.orderId = CommanUsedValued.CurrentOrderId;
-        //    ViewBag.userName = CommanUsedValued.CurrentUsser.UserName;
-        //    return View();
-        //}
+        
     }
 }

@@ -95,7 +95,8 @@
                           <label asp-for="Password" class="control-label w-100"></label>
                           <input asp-for="Password" type="password" class="form-control w-100" />
                           <span asp-validation-for="Password" class="text-danger bg-light"></span>
-                          @ViewBag.Error
+                          <h1 class="text-danger bg-light"> @ViewBag.Error </h1>
+                          
                       <h1>@ViewBag.authorize</h1>
                           
                       </div>

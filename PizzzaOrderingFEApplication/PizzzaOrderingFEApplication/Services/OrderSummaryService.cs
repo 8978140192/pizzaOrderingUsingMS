@@ -31,7 +31,7 @@ namespace PizzzaOrderingFEApplication.Services
                 CommanUsedValued.orderTotalBill += pizzaPrice;
                 if (item.qty !=0)
                 {
-                    CommanUsedValued.orderQuatity += 1;
+                    CommanUsedValued.orderQuatity += item.qty;
                 }
             }
             pizzaOrderPrices.Add(CommanUsedValued.orderTotalBill);
@@ -94,31 +94,31 @@ namespace PizzzaOrderingFEApplication.Services
             CommanUsedValued.orderTotalBill=0;
         }
 
-        public string InsertIntoOrderTables(OrderDTO orderDTO,string token)
-        {
+        //public string InsertIntoOrderTables(OrderDTO orderDTO,string token)
+        //{
 
-            string ordersId = null;
-            using (var client = new HttpClient())
-            {
+        //    string ordersId = null;
+        //    using (var client = new HttpClient())
+        //    {
                 
-                client.BaseAddress = new Uri("http://localhost:35558/api/");
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        //        client.BaseAddress = new Uri("http://localhost:35558/api/");
+        //        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 
-                var getTask = client.GetAsync("Order");
+        //        var getTask = client.GetAsync("Order");
 
-                getTask.Wait();
-                var result = getTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    //var data = result.Content.ReadAsStringAsync();
-                    var data = result.Content.ReadFromJsonAsync<string>();
-                    data.Wait();
-                    ordersId = data.Result;
+        //        getTask.Wait();
+        //        var result = getTask.Result;
+        //        if (result.IsSuccessStatusCode)
+        //        {
+        //            //var data = result.Content.ReadAsStringAsync();
+        //            var data = result.Content.ReadFromJsonAsync<string>();
+        //            data.Wait();
+        //            ordersId = data.Result;
 
-                }
-            }
-            return ordersId;
-        }
+        //        }
+        //    }
+        //    return ordersId;
+        //}
 
         public int InsertIntoOrderTable(OrderDTO orderDTO,string token)
         {

@@ -17,12 +17,7 @@ namespace PizzaApi.Services
         
         public IEnumerable<PizzaDetails> GetAllPizzaDetails()
         {
-            //IEnumerable<PizzaDetails> pizzaDetails = null;
-            //foreach (var item in _context.PizzaDetails)
-            //{
-            //    pizzaDetails.(item);
-            //}
-            //return pizzaDetails;
+            
             try
             {
                 IList<PizzaDetails> pizzas = _context.PizzaDetails.ToList();

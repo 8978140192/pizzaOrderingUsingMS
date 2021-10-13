@@ -34,12 +34,12 @@ namespace UserApi.Controllers
 
         [Route("Login")]
         [HttpPost]
-        public async Task<ActionResult<UserDTO>> Put([FromBody] UserDTO user)
+        public async Task<ActionResult<UserDTO>> Get([FromBody] UserDTO user)
         {
             var userDTO = _service.Login(user);
             if (userDTO != null)
                 return Ok(userDTO);
-            return BadRequest("Not able to register");
+            return BadRequest("Not able to Login");
         }
 
        

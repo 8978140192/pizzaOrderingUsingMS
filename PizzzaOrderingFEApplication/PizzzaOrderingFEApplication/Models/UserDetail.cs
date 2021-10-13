@@ -8,18 +8,23 @@ namespace PizzzaOrderingFEApplication.Models
 {
     public class UserDetail
     {
-        [Required(ErrorMessage = "UserId cannot be empty")]
+        //[Required(ErrorMessage = "UserId cannot be empty")]
         public string UserId { get; set; }
 
         [Required(ErrorMessage = "Password cannot be empty")]
         public string Password { get; set; }
-        [Required(ErrorMessage = "UserName cannot be empty")]
+        [Required(ErrorMessage = "Password cannot be empty")]
+        [Compare("Password",ErrorMessage ="password dosn't match")]
+        public string ReTyptePassword { get; set; }
+        //[Required(ErrorMessage = "UserName cannot be empty")]
+        //[Required]
+        //[Display(Name ="user name")]
         public string UserName { get; set; }
-        [Required(ErrorMessage = "UserPhone cannot be empty")]
+        //[Required(ErrorMessage = "UserPhone cannot be empty")]
         public string UserPhone { get; set; }
-        [Required(ErrorMessage = "UserAge cannot be empty")]
+        //[Required(ErrorMessage = "UserAge cannot be empty")]
         public string UserAge { get; set; }
-        [Required(ErrorMessage = "UserAddress cannot be empty")]
+        //[Required(ErrorMessage = "UserAddress cannot be empty")]
         public string UserAddress { get; set; }
        
     }
